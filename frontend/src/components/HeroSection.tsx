@@ -17,7 +17,7 @@ export default function HeroSection() {
 
             {/* Desktop scroll indicator */}
             <div className="hidden md:flex absolute bottom-16 right-16 flex-col items-center gap-4 opacity-30 fade-in" style={{ animationDelay: '1s' }}>
-                <span className="text-xs font-thin tracking-[0.4em] uppercase text-text" style={{ writingMode: 'vertical-rl' }}>Découvrir</span>
+                <span className="text-sm md:text-base font-light tracking-[0.3em] uppercase text-white/50" style={{ writingMode: 'vertical-rl' }}>Découvrir</span>
                 <div className="w-[1px] h-16 bg-text/20 overflow-hidden relative">
                     <div className="w-full h-full bg-text absolute top-0 left-0 animate-[scroll-down_2s_ease-in-out_infinite]"></div>
                 </div>
