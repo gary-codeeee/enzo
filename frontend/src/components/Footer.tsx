@@ -13,7 +13,7 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-24 border-t border-white/10">
-                    <p className="text-[9px] md:text-[10px] text-secondary tracking-[0.4em] font-thin uppercase">Valangin, Neuchâtel &copy; {new Date().getFullYear()}</p>
+                    <p className="text-xs md:text-sm text-secondary tracking-[0.4em] font-thin uppercase">Valangin, Neuchâtel &copy; {new Date().getFullYear()}</p>
                 </div>
             </div>
         </footer>
