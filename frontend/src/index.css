@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased selection:bg-primary selection:text-background;
+  }
+
+  ::selection {
+    @apply bg-primary/20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-black text-white px-10 py-5 font-semibold tracking-widest uppercase text-sm transition-all duration-300 cursor-pointer inline-flex items-center justify-center border border-black hover:bg-white hover:text-black;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-black border border-black px-10 py-5 font-semibold tracking-widest uppercase text-sm transition-all duration-300 cursor-pointer inline-flex items-center justify-center hover:bg-black hover:text-white;
+  }
+
+  .card {
+    @apply bg-white p-10 border border-gray-200 transition-all duration-500 overflow-hidden relative group-hover:border-black;
+  }
+
+  .input {
+    @apply w-full px-5 py-5 bg-gray-50 border-b border-gray-300 text-base transition-all duration-300 outline-none focus:border-black focus:bg-white rounded-none;
+  }
+
+  .label {
+    @apply block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
