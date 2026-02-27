@@ -59,7 +59,7 @@ export default function GallerySection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-extralight text-primary mb-6 uppercase tracking-[0.3em]">Réalisations</h2>
-                    <p className="text-xs md:text-sm text-secondary font-thin tracking-[0.4em] uppercase">L'amour du bel ouvrage au service du patrimoine.</p>
+                    <p className="text-sm md:text-base text-white/50 font-light tracking-[0.3em] uppercase mt-2">L'amour du bel ouvrage au service du patrimoine.</p>
                 </div>
 
                 {/* CSS Grid - 3 columns everywhere */}
