@@ -34,24 +34,24 @@ export default function GallerySection() {
                     <p className="text-xs md:text-sm text-secondary font-thin tracking-[0.4em] uppercase">L'amour du bel ouvrage au service du patrimoine.</p>
                 </div>
 
-                {/* Masonry CSS Grid (Pinterest Style) - Ready for up to 40+ photos */}
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                {/* CSS Grid - 2 columns on mobile, 3 on larger screens */}
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6">
                     {images.map((src, index) => (
                         <div
                             key={index}
-                            className="group relative overflow-hidden rounded-none sm:rounded-sm shadow-sm hover:shadow-xl cursor-pointer transition-all duration-500 border border-primary/10 break-inside-avoid bg-white/5"
+                            className="group relative overflow-hidden rounded-none sm:rounded-sm shadow-sm hover:shadow-xl cursor-pointer transition-all duration-500 border border-primary/10 bg-white/5 aspect-square"
                             onClick={() => setSelectedIndex(index)}
                         >
                             <img
                                 src={src}
                                 alt={`Chantier Enzo Seker ${index + 1}`}
-                                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105"
+                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                                 loading="lazy"
                             />
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center">
-                                <ZoomIn className="text-background w-12 h-12 mb-6 font-thin" strokeWidth={0.5} />
-                                <span className="text-background tracking-[0.4em] uppercase text-[10px] font-thin">Agrandir</span>
+                                <ZoomIn className="text-background w-8 h-8 sm:w-12 sm:h-12 mb-2 sm:mb-6 font-thin" strokeWidth={0.5} />
+                                <span className="text-background tracking-[0.2em] sm:tracking-[0.4em] uppercase text-[8px] sm:text-[10px] font-thin">Agrandir</span>
                             </div>
                         </div>
                     ))}
