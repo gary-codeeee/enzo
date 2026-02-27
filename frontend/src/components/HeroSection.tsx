@@ -11,6 +11,9 @@ export default function HeroSection() {
                         alt="Enzo Seker Menuiserie"
                         className="w-64 md:w-96 lg:w-[450px] object-contain transition-transform duration-700 invert mix-blend-screen"
                     />
+                    <p className="mt-4 text-base md:text-lg lg:text-xl font-light tracking-wide text-text/80 text-center italic fade-in" style={{ animationDelay: '0.5s' }}>
+                        Votre projet, de la conception à la réception.
+                    </p>
                 </div>
 
             </div>
