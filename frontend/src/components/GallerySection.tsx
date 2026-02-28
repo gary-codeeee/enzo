@@ -4,8 +4,8 @@ import { X, ZoomIn } from 'lucide-react';
 export default function GallerySection() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-    // Load the 9 exact converted WebP authentic client photos
-    const images = Array.from({ length: 9 }, (_, i) => `/gallery/${i + 1}.webp`);
+    // Load the 41 exact converted WebP authentic client photos
+    const images = Array.from({ length: 41 }, (_, i) => `/gallery/${i + 1}.webp`);
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
         if (selectedIndex === null) return;
