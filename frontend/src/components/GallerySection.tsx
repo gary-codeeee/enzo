@@ -4,20 +4,68 @@ import { X, ZoomIn } from 'lucide-react';
 export default function GallerySection() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-    // Load the 41 exact converted WebP authentic client photos
-    const images = Array.from({ length: 41 }, (_, i) => `/gallery/${i + 1}.webp`);
+    // Create exactly 41 unique SEO-optimized alt texts rotating through target keywords
+    const altTexts = [
+        "Rénovation complète par Enzo Seker à Neuchâtel",
+        "Menuiserie sur mesure et architecture intérieure Fribourg",
+        "Travaux de couverture et toiture Neuchâtel par Enzo Seker",
+        "Architecture et rénovation de l'habitat Fribourg",
+        "Aménagement intérieur menuiserie Enzo Seker Neuchâtel",
+        "Chantier de rénovation complète architecture Neuchâtel",
+        "Réalisation menuiserie et agencement Fribourg",
+        "Couverture et ferblanterie par l'entreprise Enzo Seker",
+        "Direction des travaux et rénovation Neuchâtel",
+        "Agencement bois et menuiserie architecture Fribourg",
+        "Restauration de charpente et couverture Neuchâtel",
+        "Projet d'architecture d'intérieur Enzo Seker Fribourg",
+        "Rénovation énergétique et menuiserie extérieure Neuchâtel",
+        "Travaux d'aménagement et rénovation Fribourg",
+        "Création de meubles sur mesure menuiserie Enzo Seker",
+        "Réfection de toiture et couverture Neuchâtel",
+        "Suivi de chantier architecture par Enzo Seker",
+        "Pose de parquet et menuiserie intérieure Fribourg",
+        "Rénovation de façade et bâtiment Neuchâtel",
+        "Agencement de cuisine sur mesure architecture Fribourg",
+        "Transformation d'espace intérieur par Enzo Seker",
+        "Travaux de menuiserie spécialisée Fribourg Neuchâtel",
+        "Couverture traditionnelle et rénovation de toit",
+        "Conception et architecture d'aménagement intérieur",
+        "Rénovation d'appartement complet Enzo Seker Neuchâtel",
+        "Menuiserie artisanale et créations bois Fribourg",
+        "Réhabilitation de bâtiment et charpente bois",
+        "Direction de travaux pour rénovation Fribourg",
+        "Aménagement de combles et menuiserie Neuchâtel",
+        "Architecture et rénovation de maison individuelle",
+        "Travaux de menuiserie bois sur mesure Enzo Seker",
+        "Intervention en couverture et zinguerie Neuchâtel",
+        "Projet de rénovation avec suivi architectural Fribourg",
+        "Pose d'escalier bois menuiserie traditionnelle",
+        "Entretien de toiture et travaux de couverture",
+        "Architecture d'intérieur et rénovation globale Neuchâtel",
+        "Agencement dressing et placards menuiserie Fribourg",
+        "Restauration de boiseries et rénovation Enzo Seker",
+        "Chantier de couverture et mise hors d'eau",
+        "Design d'espace et architecture intérieure Neuchâtel",
+        "Finitions menuiserie haut de gamme Fribourg par Enzo Seker"
+    ];
+
+    // Map the 41 photos to their paths and alt texts
+    const photos = Array.from({ length: 41 }, (_, i) => ({
+        src: `/gallery/${i + 1}.webp`,
+        alt: altTexts[i]
+    }));
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
         if (selectedIndex === null) return;
 
         if (e.key === 'ArrowRight') {
-            setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
+            setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % photos.length));
         } else if (e.key === 'ArrowLeft') {
-            setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + images.length) % images.length));
+            setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + photos.length) % photos.length));
         } else if (e.key === 'Escape') {
             setSelectedIndex(null);
         }
-    }, [selectedIndex, images.length]);
+    }, [selectedIndex, photos.length]);
 
     useEffect(() => {
         if (selectedIndex !== null) {
@@ -48,9 +96,9 @@ export default function GallerySection() {
         const isRightSwipe = distance < -minSwipeDistance;
 
         if (isLeftSwipe) {
-            setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
+            setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % photos.length));
         } else if (isRightSwipe) {
-            setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + images.length) % images.length));
+            setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + photos.length) % photos.length));
         }
     };
 
@@ -64,15 +112,15 @@ export default function GallerySection() {
 
                 {/* CSS Grid - 3 columns everywhere */}
                 <div className="grid grid-cols-3 gap-1 sm:gap-6">
-                    {images.map((src, index) => (
+                    {photos.map((photo, index) => (
                         <div
                             key={index}
                             className="group relative overflow-hidden rounded-none sm:rounded-sm shadow-sm hover:shadow-xl cursor-pointer transition-all duration-500 border border-primary/10 bg-white/5 aspect-square"
                             onClick={() => setSelectedIndex(index)}
                         >
                             <img
-                                src={src}
-                                alt={`Chantier Enzo Seker ${index + 1}`}
+                                src={photo.src}
+                                alt={photo.alt}
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                                 loading="lazy"
                             />
@@ -107,18 +155,18 @@ export default function GallerySection() {
                             className="text-white/70 hover:text-white p-4"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + images.length) % images.length));
+                                setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + photos.length) % photos.length));
                             }}
                             aria-label="Image précédente"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
                         </button>
-                        <span className="text-white/50 text-[10px] tracking-[0.2em]">{selectedIndex + 1} / {images.length}</span>
+                        <span className="text-white/50 text-[10px] tracking-[0.2em]">{selectedIndex + 1} / {photos.length}</span>
                         <button
                             className="text-white/70 hover:text-white p-4"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
+                                setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % photos.length));
                             }}
                             aria-label="Image suivante"
                         >
@@ -135,8 +183,8 @@ export default function GallerySection() {
                     </button>
 
                     <img
-                        src={images[selectedIndex]}
-                        alt={`Aperçu Réalisation ${selectedIndex + 1} Plein Écran`}
+                        src={photos[selectedIndex].src}
+                        alt={photos[selectedIndex].alt}
                         className="max-w-full max-h-full object-contain shadow-2xl transition-opacity duration-300"
                         onClick={(e) => e.stopPropagation()}
                     />
