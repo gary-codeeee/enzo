@@ -4,7 +4,7 @@ import { X, ZoomIn } from 'lucide-react';
 export default function GallerySection() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-    // Create exactly 40 unique SEO-optimized alt texts rotating through target keywords
+    // Create exactly 38 unique SEO-optimized alt texts rotating through target keywords
     const altTexts = [
         "Rénovation complète par Enzo Seker à Neuchâtel",
         "Menuiserie sur mesure et architecture intérieure Fribourg",
@@ -43,13 +43,11 @@ export default function GallerySection() {
         "Entretien de toiture et travaux de couverture",
         "Architecture d'intérieur et rénovation globale Neuchâtel",
         "Agencement dressing et placards menuiserie Fribourg",
-        "Restauration de boiseries et rénovation Enzo Seker",
-        "Chantier de couverture et mise hors d'eau",
-        "Design d'espace et architecture intérieure Neuchâtel"
+        "Restauration de boiseries et rénovation Enzo Seker"
     ];
 
-    // Map the 40 photos to their paths and alt texts
-    const photos = Array.from({ length: 40 }, (_, i) => ({
+    // Map the 38 photos to their paths and alt texts
+    const photos = Array.from({ length: 38 }, (_, i) => ({
         src: `/gallery/${i + 1}.webp`,
         alt: altTexts[i]
     }));
